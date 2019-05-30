@@ -10,29 +10,28 @@ import { PagesModule } from './pages/pages.module';
 // temporal
 import { FormsModule } from '@angular/forms';
 
+// Servicios
+import { ServiceModule } from './services/service.module';
 
 // Componentes
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
-//import { GraficodonaComponent } from './components/graficodona/graficodona.component';
-//import { IncrementadorComponent } from './components/incrementador/incrementador.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
-   // GraficodonaComponent,
-    //IncrementadorComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

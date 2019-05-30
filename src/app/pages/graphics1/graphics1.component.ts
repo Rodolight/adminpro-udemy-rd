@@ -9,11 +9,6 @@ import { ChartType } from 'chart.js';
 })
 export class Graphics1Component implements OnInit {
 
-    // Doughnut
-    // public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-    // public doughnutChartData: MultiDataSet = [ [350, 450, 100]];
-    // public doughnutChartType: ChartType = 'doughnut';
-
     graficos: any = {
       grafico1: {
         labels: ['Con Frijoles', 'Con Natilla', 'Con tocino'],

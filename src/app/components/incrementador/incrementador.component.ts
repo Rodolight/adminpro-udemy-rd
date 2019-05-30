@@ -23,6 +23,7 @@ export class IncrementadorComponent implements OnInit {
   ngOnInit() {
     // console.log('Leyenda', this.leyenda);
     // console.log('Progreso', this.progreso);
+    this.txtProgress.nativeElement.focus();
   }
 
   onChange(newValue: number) {
@@ -65,8 +66,7 @@ export class IncrementadorComponent implements OnInit {
     this.limiteSuperior = false;
 
     this.changeProgress.emit( this.progreso );
+    this.txtProgress.nativeElement.focus();
   }
 
-
- 
 }
