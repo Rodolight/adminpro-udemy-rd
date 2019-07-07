@@ -18,12 +18,12 @@ export class LoginComponent implements OnInit {
 
   recuerdame = false;
   email: string;
-  
+
   auth2: any;
 
 
   constructor( public router: Router,
-                private ngZone: NgZone,
+               private ngZone: NgZone,
                public usuarioService: UsuarioService ) { }
 
   ngOnInit() {
@@ -39,9 +39,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-  googleInit(){
-   
-    gapi.load('auth2', ()=> {
+  googleInit() {
+    gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
         client_id: '649062693692-9256s4e0vi52n8p5migm35kdkh1bnlqo.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
@@ -54,14 +53,13 @@ export class LoginComponent implements OnInit {
 
   }
 
-  attachSignin( element ){
+  attachSignin( element: any ) {
 
-    this.auth2.attachClickHandler( element, {}, (googleUser) => { 
-       
-      //let profile = googleUser.getBasicProfile();
-      let token = googleUser.getAuthResponse().id_token;
+    this.auth2.attachClickHandler( element, {}, (googleUser: any ) => {
 
-    this.ngZone.run(()=>  this.usuarioService.loginGoogle( token )
+      const token = googleUser.getAuthResponse().id_token;
+
+      this.ngZone.run(() =>  this.usuarioService.loginGoogle( token )
              .subscribe( () => this.router.navigate(['/dashboard'])));
     });
   }

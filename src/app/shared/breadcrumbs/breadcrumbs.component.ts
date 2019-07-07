@@ -29,7 +29,7 @@ export class BreadcrumbsComponent implements OnInit {
       };
 
       meta.updateTag(metaTag);
-      
+
     });
   }
 
@@ -39,10 +39,10 @@ export class BreadcrumbsComponent implements OnInit {
   getDataRoute() {
 
     return this.router.events.pipe(
-    
+
       filter( (evento) => evento instanceof ActivationEnd ),
-      // filter( (evento: ActivationEnd ) => evento.snapshot.firstChild === null),
-      // map( (evento: ActivationEnd ) => evento.snapshot.data )
+      filter( (evento: ActivationEnd ) => evento.snapshot.firstChild === null),
+      map( (evento: ActivationEnd ) => evento.snapshot.data )
     );
 
   }

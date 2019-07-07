@@ -7,3 +7,16 @@
 .pointer {
     cursor: pointer;
 }
+
+.btn-top {
+    margin-top: 25px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.w150 {
+    width: 150px;
+    height: 135px;
+}
