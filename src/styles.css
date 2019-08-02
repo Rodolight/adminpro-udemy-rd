@@ -39,12 +39,22 @@
         height: 50px;
     }
     
-    .w70 {
-        width: 70px;
+    .img-150 {
+        width: 180px;
+        height: 150px;
     }
     
-    .hide {
-        display: none;
+    .w70 {
+        width: 70px;
+        height: 60px;
+    }
+    
+    .wText77 {
+        width: 77%;
+    }
+    
+    .w100 {
+        width: 100%;
     }
     
     .fondo-negro {
@@ -55,4 +65,29 @@
         top: 0px;
         left: 0px;
         z-index: 9999;
+    }
+    
+    .no-display {
+        display: none;
+    }
+    
+    .no-border {
+        border: none;
+    }
+    
+    #rowBody:hover {
+        background: #f4f6f9;
+        width: 100%;
+        height: 90px;
+        border-radius: 5px;
+    }
+    
+    #rowBody {
+        width: 100%;
+        height: 90px;
+    }
+    
+    .line {
+        color: black;
+        height: 5px;
     }

@@ -12,9 +12,12 @@ import { ProfileComponent } from './profile/profile.component';
 
 // Mantenimientos Components
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
 
 // Guard
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 
 
@@ -34,6 +37,9 @@ const PAGE_ROUTES: Routes = [
         { path: 'profile' , component: ProfileComponent, data: { titulo: 'Perfil de Usuario' }   },
         // Mantenimientos
         { path: 'usuarios' , component: UsuariosComponent, data: { titulo: 'Mantenimiento de Usuarios' }   },
+        { path: 'hospitales' , component: HospitalesComponent, data: { titulo: 'Mantenimiento de Hospitales' }   },
+        { path: 'medicos' , component: MedicosComponent, data: { titulo: 'Mantenimiento de Médicos' } },
+        { path: 'medico/:id' , component: MedicoComponent, data: { titulo: 'Actualizar Médico' } },
         { path: '' , redirectTo: '/dashboard', pathMatch: 'full' },
 
       ]

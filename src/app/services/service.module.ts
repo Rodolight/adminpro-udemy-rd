@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ModaluploadService } from '../components/modal-upload/modalupload.service';
 
-
 import { SettingsService,
          SharedService,
          SidebarService,
          UsuarioService,
+         HospitalService,
+         MedicoService,
          LoginGuardGuard
         } from './service.index';
 
@@ -22,6 +23,8 @@ import { SettingsService,
               SharedService,
               LoginGuardGuard,
               UsuarioService,
-            ModaluploadService ]
+              HospitalService,
+              MedicoService,
+              ModaluploadService ]
 })
 export class ServiceModule { }

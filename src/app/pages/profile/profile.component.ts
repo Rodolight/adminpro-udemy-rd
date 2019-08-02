@@ -3,7 +3,6 @@ import { UsuarioService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
 import swal from 'SweetAlert';
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

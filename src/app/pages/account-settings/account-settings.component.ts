@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, ElementRef } from '@angular/core';
 
 import { SettingsService } from '../../services/service.index';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-account-settings',
@@ -10,7 +11,8 @@ import { SettingsService } from '../../services/service.index';
 export class AccountSettingsComponent implements OnInit {
 
 // tslint:disable-next-line: variable-name
-  constructor( public settings: SettingsService ) {
+  constructor( public settings: SettingsService,
+               @Inject(DOCUMENT) private document ) {
     this.settings.cargarAjustes();
   }
 
@@ -21,10 +23,14 @@ export class AccountSettingsComponent implements OnInit {
 cambiarColor( tema: string, link: any ) {
 
  this.aplicarCheck(link);
-
  this.settings.aplicarTema( tema );
+ const url = `assets/css/colors/${ tema }.css`;
+ this.document.getElementById('tema').setAttribute('href', url);
+ this.settings.ajustes.tema = tema;
+ this.settings.ajustes.temaUrl = url;
+ this.settings.guardarAjustes();
+}
 
-   }
 
    aplicarCheck( link: any) {
     const selectores: any = document.getElementsByClassName('selector');
