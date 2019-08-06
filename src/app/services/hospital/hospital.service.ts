@@ -12,6 +12,7 @@ import { UsuarioService } from '../usuario/usuario.service';
 export class HospitalService {
   hospital: Hospital;
   totalHospitales = 0;
+  nombreHospital = '';
 
   constructor( public http: HttpClient,
                public usuarioService: UsuarioService) { }

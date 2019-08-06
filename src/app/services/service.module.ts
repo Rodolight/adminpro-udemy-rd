@@ -9,7 +9,8 @@ import { SettingsService,
          UsuarioService,
          HospitalService,
          MedicoService,
-         LoginGuardGuard
+         LoginGuardGuard,
+         AdminGuard
         } from './service.index';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SettingsService,
               SettingsService,
               SharedService,
               LoginGuardGuard,
+              AdminGuard,
               UsuarioService,
               HospitalService,
               MedicoService,

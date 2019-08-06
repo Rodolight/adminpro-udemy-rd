@@ -30,9 +30,13 @@ export class HospitalesComponent implements OnInit {
   }
 
   ngOnInit() {
+    if ( this.hospitalService.nombreHospital !== '' ) {
+     this.buscarHospital(this.hospitalService.nombreHospital);
+    } else {
     this.obtenerHospitales();
     this.modaluploadService.notificacion
           .subscribe( () => this.obtenerHospitales() );
+   }
   }
 
   obtenerHospitales() {
@@ -97,6 +101,7 @@ export class HospitalesComponent implements OnInit {
            this.hospitales = hospitales;
            this.totalRegistros = this.hospitales.length;
            this.cargando = false;
+           console.log(this.hospitales);
          });
   }
 

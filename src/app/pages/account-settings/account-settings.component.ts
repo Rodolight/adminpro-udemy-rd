@@ -10,9 +10,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class AccountSettingsComponent implements OnInit {
 
-// tslint:disable-next-line: variable-name
-  constructor( public settings: SettingsService,
-               @Inject(DOCUMENT) private document ) {
+  constructor( public settings: SettingsService ) {
     this.settings.cargarAjustes();
   }
 
@@ -24,11 +22,7 @@ cambiarColor( tema: string, link: any ) {
 
  this.aplicarCheck(link);
  this.settings.aplicarTema( tema );
- const url = `assets/css/colors/${ tema }.css`;
- this.document.getElementById('tema').setAttribute('href', url);
- this.settings.ajustes.tema = tema;
- this.settings.ajustes.temaUrl = url;
- this.settings.guardarAjustes();
+
 }
 
 

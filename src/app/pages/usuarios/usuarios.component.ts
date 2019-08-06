@@ -18,13 +18,20 @@ export class UsuariosComponent implements OnInit {
   totalRegistros = 0;
   cargando = true;
 
+
   constructor( public usuarioService: UsuarioService,
-               public modaluploadService: ModaluploadService ) { }
+               public modaluploadService: ModaluploadService ) {
+
+               }
 
   ngOnInit() {
+    if ( this.usuarioService.nombreUsuario !== '' ) {
+      this.buscarUsuario(this.usuarioService.nombreUsuario);
+    } else {
     this.cargarUsuarios();
     this.modaluploadService.notificacion
           .subscribe( () => this.cargarUsuarios() );
+   }
   }
 
   mostrarModal( id: string ) {
@@ -69,7 +76,7 @@ export class UsuariosComponent implements OnInit {
     this.usuarioService.buscarUsuario(termino, this.desde)
     .subscribe( ( usuarios: Usuario[]) => {
       this.usuarios = usuarios;
-     // this.totalRegistros = usuarios.length;
+      this.totalRegistros = usuarios.length;
       this.cargando = false;
     });
   }

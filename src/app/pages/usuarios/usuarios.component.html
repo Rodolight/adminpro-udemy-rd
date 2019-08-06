@@ -62,8 +62,11 @@
                         </tr>
                     </tbody>
                 </table>
-                <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
-                <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
+                <div *ngIf="totalRegistros > 5">
+                    <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
+                    <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
+
+                </div>
             </div>
         </div>
     </div>
