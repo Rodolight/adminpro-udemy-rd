@@ -1,7 +1,7 @@
-import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 // Personal Components
-import { PagesComponent } from './pages.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graphics1Component } from './graphics1/graphics1.component';
@@ -15,23 +15,23 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 
 // Guard
-import { LoginGuardGuard } from '../services/service.index';
 import { AdminGuard } from '../services/service.index';
 
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { VerificaTokenGuard } from '../services/guards/verifica-token.guard';
 
 
 
 
 
 const PAGE_ROUTES: Routes = [
-    { path: '' ,
-    component: PagesComponent,
-    canActivate: [ LoginGuardGuard ],
-    children: [
-        { path: 'dashboard' , component: DashboardComponent, data: { titulo: 'Dashboard' } },
+        { path: 'dashboard',
+          component: DashboardComponent,
+          canActivate: [ VerificaTokenGuard ],
+          data: { titulo: 'Dashboard' }
+        },
         { path: 'progress' , component: ProgressComponent, data: { titulo: 'Progress' }  },
         { path: 'graphic1' , component: Graphics1Component, data: { titulo: 'Graphics' }  },
         { path: 'promesas' , component: PromesasComponent , data: { titulo: 'Promises' } },
@@ -51,8 +51,6 @@ const PAGE_ROUTES: Routes = [
         { path: 'medico/:id' , component: MedicoComponent, data: { titulo: 'Actualizar Médico' } },
         { path: '' , redirectTo: '/dashboard', pathMatch: 'full' },
 
-      ]
-    }
 ];
 
 export const PAGES_ROUTES = RouterModule.forChild(PAGE_ROUTES );

@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 
 
@@ -18,7 +19,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
      NopagefoundComponent,
      HeaderComponent,
      BreadcrumbsComponent,
-     SidebarComponent
+     SidebarComponent,
+     ModalUploadComponent
    ],
    imports: [
      RouterModule,
@@ -29,7 +31,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     NopagefoundComponent,
     HeaderComponent,
     BreadcrumbsComponent,
-    SidebarComponent
+    SidebarComponent,
+    ModalUploadComponent
    ]
 
 } )

@@ -10,7 +10,6 @@ import { catchError } from 'rxjs/internal/operators/catchError';
 import swal from 'SweetAlert';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subirArchivo/subir-archivo.service';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +25,24 @@ export class UsuarioService {
                public router: Router,
                public subirArchivoService: SubirArchivoService ) {
     this.cargarStorage();
+  }
+
+  renuevaToken() {
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url += '?token=' + this.token;
+
+    return this.http.get(url).pipe( map( (resp: any) => {
+     this.token = resp.token;
+     localStorage.setItem('token', this.token );
+     console.log('Token Renovado en el usuario service');
+     return true;
+    }))
+    .pipe(catchError( err => {
+      this.router.navigate(['/login']);
+      swal('No se pudo renovar el token', 'No fue posible renovar el token', 'error');
+      return `${console.log(err)}`;
+     }));
+
   }
 
   estaLogueado() {
@@ -129,7 +146,7 @@ export class UsuarioService {
           .pipe( map( (resp: any) => {
             if ( usuario._id === this.usuario._id ) {
             const usuarioDB: Usuario = resp.usuario;
-            this.guardarStorage(usuarioDB._id, this.token, usuarioDB,this.menu);
+            this.guardarStorage(usuarioDB._id, this.token, usuarioDB, this.menu);
             }
             swal('Usuario Actualizado', usuario.nombre, 'success');
             return true;

@@ -34,7 +34,7 @@ export class BusquedaComponent implements OnInit {
   }
 
   buscar( termino: string ) {
-    termino = termino.trimLeft();
+    termino = termino.trim();
     if ( termino.length > 0 && termino !== ' '  ) {
 
     const url = URL_SERVICIOS + '/busqueda/todo/' + termino;

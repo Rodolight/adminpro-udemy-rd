@@ -9,7 +9,6 @@
  import { ChartsModule } from 'ng2-charts';
 
  // Componentes
- import { PagesComponent } from './pages.component';
  import { DashboardComponent } from './dashboard/dashboard.component';
  import { ProgressComponent } from './progress/progress.component';
  import { Graphics1Component } from './graphics1/graphics1.component';
@@ -29,7 +28,6 @@
  import { RxjsComponent } from './rxjs/rxjs.component';
  import { ProfileComponent } from './profile/profile.component';
  import { UsuariosComponent } from './usuarios/usuarios.component';
- import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
  import { HospitalesComponent } from './hospitales/hospitales.component';
  import { MedicosComponent } from './medicos/medicos.component';
  import { MedicoComponent } from './medicos/medico.component';
@@ -38,7 +36,6 @@
 
  @NgModule( {
      declarations: [
-      PagesComponent,
       DashboardComponent,
       ProgressComponent,
       Graphics1Component,
@@ -49,7 +46,6 @@
       RxjsComponent,
       ProfileComponent,
       UsuariosComponent,
-      ModalUploadComponent,
       HospitalesComponent,
       MedicosComponent,
       MedicoComponent,
